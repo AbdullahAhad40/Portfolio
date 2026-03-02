@@ -488,11 +488,11 @@ footer{
 }
 
 .project-heading {
-    animation: fadeRight 1s ease forwards;
+    animation: fadeUp 1s ease forwards;
 }
 
 .project-row {
-    animation: fadeRight 1s ease forwards;
+    animation: fadeUp 1s ease forwards;
 }
 
 .project-row:nth-child(2) { animation-delay: 0.2s; }
