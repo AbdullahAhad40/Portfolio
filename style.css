@@ -122,17 +122,20 @@ span{
     object-fit: cover;      /* Prevents the image from looking "squashed" */
     object-position: center; /* Keeps the face/subject in the middle */
 
-    border-radius: 50%;
-    box-shadow: 0 0 25px solid #4bb7ac;
+    /* create an organic, wavy blob border instead of perfect circle */
+    border-radius: 55% 45% 60% 40% / 50% 60% 40% 50%;
+    border: 5px solid #4bb7ac;
+    box-shadow: 0 0 25px #4bb7ac;
     cursor: pointer;
-    transition: 0.3s linear;
+    transition: 0.3s linear, border-radius 0.3s ease;
 }
 
 .home-img img:hover{
     font-size: 1.8rem;
     font-weight: 500;
     transform: translateY(-10px);
-    border-color: #4bb7ac;
+    /* change blob shape slightly on hover for a flowing effect */
+    border-radius: 50% 60% 40% 50% / 55% 45% 60% 40%;
     box-shadow:
         0 0 10px #4bb7ac,
         0 0 25px rgba(75, 183, 172, 0.5),
@@ -396,6 +399,10 @@ footer{
     cursor: default;
     opacity: 0;
     animation: fadeUp 0.8s ease forwards;
+}
+
+.achievement_box p{
+    font-weight: 450;
 }
 
 .achievement_box:nth-child(1) { animation-delay: 1s; }
