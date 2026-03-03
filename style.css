@@ -513,20 +513,20 @@ footer{
 
 /* ===== CERTIFICATES SECTION ===== */
 .certificates-grid {
-  display: flex; /* Arranges items in a row */
-  flex-wrap: wrap; /* Allows items to jump to the next line */
-  gap: 20px; /* Space between each image */
-  justify-content: center; /* Centers the whole group */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
   padding: 20px;
 }
 
 .certificates-grid a {
-  flex: 0 1 auto; /* Allows images to keep their natural size */
+  flex: 0 1 auto;
 }
 
 .certificates-grid img {
-  max-width: 300px; /* Limits how big they can get so they don't take over the screen */
-  height: auto; /* Keeps the original aspect ratio (no zooming/cropping) */
+  max-width: 300px;
+  height: auto;
   border-radius: 5px;
   border: 1px solid #ccc;
   box-shadow: 2px 4px 10px rgba(0,0,0,0.1);
@@ -540,6 +540,56 @@ footer{
         0 0 10px #4bb7ac,
         0 0 25px rgba(75, 183, 172, 0.5),
         0 0 50px rgba(75, 183, 172, 0.3);
+}
+/* overlay text for certificates */
+
+/* 1. Make the container the 'anchor' for the tooltip */
+.cert-item {
+    position: relative;
+    display: inline-block;
+}
+
+/* 2. Create the Tooltip Bubble */
+.cert-item::after {
+    content: attr(data-title);
+    position: absolute;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #4bb7ac;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 14px;
+    white-space: nowrap;
+    
+    /* Animation & Visibility */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease-in-out;
+    z-index: 10;
+}
+
+/* 3. Create the little triangle arrow at the bottom */
+.cert-item::before {
+    content: "";
+    position: absolute;
+    bottom: 115%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: #4bb7ac;
+    
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease-in-out;
+}
+
+/* 4. Show on Hover */
+.cert-item:hover::after,
+.cert-item:hover::before {
+    opacity: 1;
+    visibility: visible;
 }
 
 /* ========================================= */
